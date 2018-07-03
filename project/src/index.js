@@ -21,14 +21,14 @@ import "./static/css/common.less";
 // import  Footer from "./component/Footer";
 // import Home from "./routes/Home";
 // import Mycourse from "./routes/Mycourse";
-// import Person from "./routes/Person";
+import Person from "./routes/Login";
 
 
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
             <Switch>
-                {/*<Route path="/" exact component={Login}/>*/}
+                <Route path="/" exact component={Login}/>
                
             </Switch>
         </LocaleProvider>
