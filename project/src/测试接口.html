@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="button">测试</button>
+</body>
+</html>
+<script src="../node_modules/axios/dist/axios.js"></script>
+<script src="../node_modules/qs/dist/qs.js"></script>
+<script>
+    console.log(Qs);
+    axios.defaults.baseURL = 'http://localhost:8000';
+    axios.defaults.withCredentials = true;
+    axios.defaults.transformRequest = (data = {}) => Qs.stringify(data);
+    axios.interceptors.response.use(result => result.data);
+
+
+    let button=document.querySelector('button');
+    async function queryBanner(item) {
+        let a= await axios.post('/login/enter',item);
+        console.log(a);
+    }
+
+    async function queryRegister(item) {
+        let a= await axios.post('/login/register',item);
+        console.log(a);
+    }
+
+    button.onclick=function (){
+        queryRegister({
+            "name": "金敏捷",
+            "email": "zhou_xiao_tian@163.com",
+            "phone": "13041086186",
+            "password": "26ef1520f9c16b70e23e0ad2"
+        });
+    }
+
+</script>
