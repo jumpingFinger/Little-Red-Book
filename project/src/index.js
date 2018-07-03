@@ -23,13 +23,14 @@ import "./static/css/common.less";
 // import Mycourse from "./routes/Mycourse";
 // import Person from "./routes/Person";
 
+
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
-            <div>
+            <Switch>
+                {/*<Route path="/" exact component={Login}/>*/}
                
-               
-            </div>
+            </Switch>
         </LocaleProvider>
     </HashRouter>
 </Provider>,root);

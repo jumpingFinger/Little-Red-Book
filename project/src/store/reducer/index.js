@@ -1,5 +1,5 @@
 import {combineReducers}  from "redux";
-import course from "./home";
+import home from "./home";
 import person from "./person";
 
 
