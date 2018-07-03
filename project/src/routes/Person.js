@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Switch,Route,Redirect} from "react-router-dom";
 import Footer from '../component/Footer';
 
-class Home extends React.Component{
+class Person extends React.Component{
     constructor(props,context){
         super(props,context);
     }
@@ -16,4 +16,4 @@ class Home extends React.Component{
         </section>
     }
 }
-export default Home
+export default Person
