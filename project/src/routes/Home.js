@@ -12,7 +12,7 @@ class Home extends React.Component{
         return <section >
             <Switch>
              
-                // <Route path={'/course/info'} component={Info}></Route>
+                {/*<Route path={'/course/info'} component={Info}></Route>*/}
             </Switch>
         </section>
     }
