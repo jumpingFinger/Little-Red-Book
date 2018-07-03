@@ -11,7 +11,7 @@ import md5 from 'blueimp-md5';
 import {LocaleProvider} from "antd";
 import zh_CN from "antd/lib/locale-provider/zh_CN";
 
-// CSS
+// import CSS
 import './static/css/reset.min.css';
 import "./static/css/common.less";
 
@@ -20,8 +20,6 @@ import "./static/css/common.less";
 import  Header from "./component/Header";
 import  Footer from "./component/Footer";
 import Home from "./routes/Home";
-
-
 import Login from "./routes/Login";
 import Message from "./routes/Message";
 import Person from "./routes/Person";
@@ -40,4 +38,3 @@ render(<Provider store={store}>
         </LocaleProvider>
     </HashRouter>
 </Provider>,root);
-

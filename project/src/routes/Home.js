@@ -16,4 +16,4 @@ class Home extends React.Component{
         </section>
     }
 }
-export default Home;
+export default Home
