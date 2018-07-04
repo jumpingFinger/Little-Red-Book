@@ -1,0 +1,101 @@
+@button-color: #ffffff;
+
+body {
+  position: relative;
+}
+
+.login {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/login-bg.jpg") ;
+
+
+  h2 {
+    position: absolute;
+    top: .7rem;
+    left: 35%;
+    font-size: .8rem;
+    color: @button-color;
+  }
+  p {
+    text-align: center;
+    position: absolute;
+    top: 1.8rem;
+    left: 35%;
+    font-size: .4rem;
+    color: rgba(248, 248, 255, 0.5);
+    font-weight: normal;
+  }
+  .land {
+    font-weight: bold;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #fff;
+    width: 2.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    position: absolute;
+    top: 9.75rem;
+    left: 12%;
+    //color: @button-color;
+    color: black;
+
+    &:hover {
+      background-color: #D5D5D5;
+      color: #FFFFFF;
+    }
+  }
+  .register {
+    font-weight: bold;
+    border-radius: 50px;
+    text-align: center;
+    background-color: #fff;
+    width: 2.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    position: absolute;
+    top: 9.75rem;
+    left: 55%;
+    //color: @button-color;
+    color: black;
+    &:hover {
+      background-color: #D5D5D5;
+      color: #88ACDD;
+    }
+  }
+  ul {
+    li {
+      a {
+        color: @button-color;
+        img {
+          margin-right: .1rem;
+        }
+      }
+
+    }
+    .wx {
+      position: absolute;
+      top: 11.75rem;
+      left: 10%;
+
+    }
+    .qq {
+      position: absolute;
+      top: 11.75rem;
+      left: 30%;
+
+    }
+    .weibo {
+      position: absolute;
+      top: 11.75rem;
+      left: 50%;
+
+    }
+    .fb {
+      position: absolute;
+      top: 11.75rem;
+      left: 70%;
+
+    }
+  }
+}

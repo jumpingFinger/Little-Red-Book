@@ -9,7 +9,7 @@ class Person extends React.Component{
     }
 
     render(){
-        return <section >
+        return <section>
             <Switch>
                 <Footer></Footer>
             </Switch>
