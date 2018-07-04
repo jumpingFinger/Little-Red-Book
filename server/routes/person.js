@@ -87,6 +87,7 @@ route.post('/register', (req, res) => {
 
 route.get('/out', (req, res) => {
     req.session.personID = null;
-    res.send({code: 0, msg: 'OK!'});
+    res.send({code: 0, message: '退出成功'});
 });
+
 module.exports = route;
