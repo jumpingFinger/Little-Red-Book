@@ -1,8 +1,8 @@
-import course from "./course";
-import person from "./person";
 
+import person from "./person";
+import more from "./more";
 let action={
-    course,
-    person
+    person,
+    more
 };
 export default action;

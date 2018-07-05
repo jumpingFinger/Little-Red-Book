@@ -15,6 +15,7 @@ export default class banner extends React.Component {
                 <Route path={'/login'} exact component={LoginInfo}/>
                 <Route path={'/login/land'}  component={Land}/>
                 <Route path={'/login/register'}  component={Register}/>
+                <Redirect to="/login"/>
             </Switch>
         </section>;
     }

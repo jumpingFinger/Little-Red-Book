@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Switch,Route,Redirect} from "react-router-dom";
 import Footer from '../component/Footer';
-
+import Header from "../component/Header";
 class Shopping extends React.Component{
     constructor(props,context){
         super(props,context);
@@ -10,9 +10,8 @@ class Shopping extends React.Component{
 
     render(){
         return <section >
-            <Switch>
+                <Header></Header>
                 <Footer></Footer>
-            </Switch>
         </section>
     }
 }

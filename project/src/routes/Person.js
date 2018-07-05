@@ -1,18 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Switch,Route,Redirect} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 import Footer from '../component/Footer';
-
-class Person extends React.Component{
-    constructor(props,context){
-        super(props,context);
+import Header from "../component/Header";
+class Person extends React.Component {
+    constructor(props, context) {
+        super(props, context);
     }
 
-    render(){
+    render() {
+
         return <section>
-            <Switch>
-                <Footer></Footer>
-            </Switch>
+            <Header></Header>
+
+
+
+            <Footer></Footer>
         </section>
     }
 }

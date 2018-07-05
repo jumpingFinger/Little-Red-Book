@@ -1,80 +1,64 @@
-.login-land {
-  @button-color: #ffffff;
-  .login-operation {
-    position: relative;
-    h3 {
-      position: absolute;
-      top: 2rem;
-      left: 2.4rem;
-      font-weight: bold;
-      font-size: .5rem;
-    }
-    p {
-      position: absolute;
-      top: 3rem;
-      left: 2.2rem;
-      width: 3.5rem;
+@button-color: #ffffff;
 
-      Input {
-        height: .6rem;
-        display: inline-block;
-        padding: .1rem .3rem;
-        font-size: .2rem  ;
-        letter-spacing: .1rem ;
-        padding-left: .8rem;
-      }
-    }
-
-    .Determine {
-      text-align: center;
-      font-weight: bold;
-      border-radius: 50px;
-      background-color: #E6E6E6;
-      width: 2.5rem;
-      height: .5rem;
-      line-height: .5rem;
-      position: absolute;
-      top: 4rem;
-      left: 2.7rem;
-      &:hover {
-        background-color: #D5D5D5;
-        color: #FFFFFF;
-      }
-    }
+.personLoginBox {
+  width: 5rem;
+  position: absolute;
+  top: 2rem;
+  left: 1.3rem;
+  padding: .4rem;
+  h4 {
+    position: absolute;
+    top: -1rem;
+    left: 1.6rem;
+    font-size: .35rem;
+    color: #353535;
   }
-  ul {
-    li {
-      a {
-        color: @button-color;
-        img {
-          margin-right: .1rem;
-        }
-      }
-
-    }
-    .wx {
-      position: absolute;
-      top: 11.75rem;
-      left: 10%;
-
-    }
-    .qq {
-      position: absolute;
-      top: 11.75rem;
-      left: 30%;
-
-    }
-    .weibo {
-      position: absolute;
-      top: 11.75rem;
-      left: 50%;
-
-    }
-    .fb {
-      position: absolute;
-      top: 11.75rem;
-      left: 70%;
-
-    }
+  p {
+    line-height: .6rem;
+    font-size: .4rem;
+  }
+  .return{
+    position: absolute;
+    top: -1.5rem;
+    left: -0.3rem;
+    width: .8rem;
+    height: .8rem;
   }
 }
+
+ul {
+  li {
+    a {
+      color: @button-color;
+      img {
+        margin-right: .1rem;
+      }
+    }
+
+  }
+  .wx {
+    position: absolute;
+    top: 11.75rem;
+    left: 10%;
+
+  }
+  .qq {
+    position: absolute;
+    top: 11.75rem;
+    left: 30%;
+
+  }
+  .weibo {
+    position: absolute;
+    top: 11.75rem;
+    left: 50%;
+
+  }
+  .fb {
+    position: absolute;
+    top: 11.75rem;
+    left: 70%;
+  }
+}
+
+

@@ -23,12 +23,13 @@ import Login from "./routes/Login";
 import Message from "./routes/Message";
 import Person from "./routes/Person";
 import Shopping from "./routes/Shoping";
+
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
             <Switch>
                 <Route path="/" exact component={Login}/>
-                <Route path="/login" component={Login}/>
+                <Route path="/login"  component={Login}/>
                 <Route path="/home"  component={Home}/>
                 <Route path="/person"  component={Person}/>
                 <Route path="/message"  component={Message}/>
