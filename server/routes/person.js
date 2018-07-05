@@ -19,14 +19,21 @@ function add_temp_store(req, res) {
 
 route.post('/enter', (req, res) => {
     let {name, password} = req.body || {};
+<<<<<<< HEAD
     //n
     password = password.substr(4, 24).split('').reverse().join('');
+=======
+    //password = password.substr(4, 24).split('').reverse().join('');
+>>>>>>> aad1a2d56ff87b9b4ae48b55e8520b3f7fe56e40
     let nameExist = false;
     const item = req.personData.find(item => {
         nameExist = item.name === name || item.email === name || item.phone === name;
         return nameExist && item.password === password;
     });
+<<<<<<< HEAD
     console.log(item);
+=======
+>>>>>>> aad1a2d56ff87b9b4ae48b55e8520b3f7fe56e40
     if (item) {
         req.session.personID = parseFloat(item.id);
         add_temp_store(req, res);
@@ -49,6 +56,7 @@ route.post('/enter', (req, res) => {
 // });
 
 route.post('/register', (req, res) => {
+<<<<<<< HEAD
     console.log(req.body);
     let exitPhone = req.personData.some(item => {
         return parseFloat(item.phone) == parseFloat(req.body.phone);
@@ -56,6 +64,13 @@ route.post('/register', (req, res) => {
     if (exitPhone)  {
         return res.send({state: 2, message: '电话号码已存在'});
     }
+=======
+
+    let exitPhone = req.personData.some(item => {
+        return parseFloat(item.phone) == parseFloat(req.body.phone);
+    });
+    if (exitPhone) return res.send({state: false, message: '电话号码已存在'});
+>>>>>>> aad1a2d56ff87b9b4ae48b55e8520b3f7fe56e40
     let personInfo = {
         id: req.personData.length === 0 ? 1 : (parseFloat(req.personData[req.personData.length - 1].id) + 1),
         name: '',
@@ -69,9 +84,15 @@ route.post('/register', (req, res) => {
     writeFile(LOGIN_PATH, req.personData).then(() => {
         req.session.personID = parseFloat(personInfo.id);
         add_temp_store(req, res);
+<<<<<<< HEAD
         res.send({state: 0, message: '注册成功'});
     }).catch(() => {
         res.send({state: 1, message: '注册失败'});
+=======
+        res.send({state: true, message: '注册成功'});
+    }).catch(() => {
+        res.send({state: false, message: '注册失败'});
+>>>>>>> aad1a2d56ff87b9b4ae48b55e8520b3f7fe56e40
     });
 });
 

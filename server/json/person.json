@@ -18,7 +18,11 @@
     "name": "马少帅",
     "email": "724015930@qq.com",
     "phone": "18735206566",
+<<<<<<< HEAD
     "password": "b18f18dfa50eec15f77385945320647a"
+=======
+    "password": "02354958377f51cee05afd81"
+>>>>>>> aad1a2d56ff87b9b4ae48b55e8520b3f7fe56e40
   },
   {
     "id": 2,
@@ -26,6 +30,7 @@
     "email": "zhou_xiao_tian@163.com",
     "phone": "13041086186",
     "password": "2da0e32e07b61c9f0251"
+<<<<<<< HEAD
   },
   {
     "id": 3,
@@ -33,5 +38,7 @@
     "email": "957184448@qq.com",
     "phone": "13190189551",
     "password": "26b1f1815f588354b323497e"
+=======
+>>>>>>> aad1a2d56ff87b9b4ae48b55e8520b3f7fe56e40
   }
 ]

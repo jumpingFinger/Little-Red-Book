@@ -3,19 +3,18 @@ import {connect} from 'react-redux';
 import {Switch, Route, Redirect} from "react-router-dom";
 import Footer from '../component/Footer';
 import Header from "../component/Header";
-class Person extends React.Component {
-    constructor(props, context) {
-        super(props, context);
+
+
+class Person extends React.Component{
+    constructor(props,context){
+        super(props,context);
     }
 
-    render() {
+    render(){
+        return <section >
+                <Header></Header>
+                <Footer></Footer>
 
-        return <section>
-            <Header></Header>
-
-
-
-            <Footer></Footer>
         </section>
     }
 }

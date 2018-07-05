@@ -15,6 +15,9 @@ import zh_CN from "antd/lib/locale-provider/zh_CN";
 import './static/css/reset.min.css';
 import "./static/css/common.less";
 
+
+
+
 //导入组公共组件
 import  Header from "./component/Header";
 import  Footer from "./component/Footer";
@@ -23,6 +26,10 @@ import Login from "./routes/Login";
 import Message from "./routes/Message";
 import Person from "./routes/Person";
 import Shopping from "./routes/Shoping";
+
+
+import More from "./routes/More";
+import Settings from "./routes/Settings";
 
 render(<Provider store={store}>
     <HashRouter>
@@ -33,8 +40,9 @@ render(<Provider store={store}>
                 <Route path="/home"  component={Home}/>
                 <Route path="/person"  component={Person}/>
                 <Route path="/message"  component={Message}/>
-                <Route path='/shopping' component={Shopping}></Route>
-
+                <Route path='/shopping' component={Shopping}/>
+                <Route path='/more' component={More}/>
+                <Route path='/settings' component={Settings}></Route>
             </Switch>
         </LocaleProvider>
     </HashRouter>

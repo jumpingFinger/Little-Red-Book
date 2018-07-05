@@ -16,8 +16,8 @@ class LoginInfo extends React.Component {
     }
 
     render() {
-        return <div>
-            <div className="login">
+        return <div className="bgName" style={{height:document.documentElement.clientHeight+"px" , overflow:"hidden" ,}}>
+            <div className="login" >
                 <h2>小蓝书</h2>
                 <p>记录我的生活</p>
                 <Link to="/login/land" exact className="land">登陆</Link>
