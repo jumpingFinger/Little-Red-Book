@@ -26,6 +26,8 @@ import Person from "./routes/Person";
 import Shopping from "./routes/Shoping";
 import More from "./routes/More";
 import Settings from "./routes/Settings";
+import PersonalData from "./routes/PersonalData";
+
 render(<Provider store={store}>
     <HashRouter>
         <LocaleProvider locale={zh_CN}>
@@ -38,6 +40,7 @@ render(<Provider store={store}>
                 <Route path='/shopping' component={Shopping}/>
                 <Route path='/more' component={More}/>
                 <Route path='/settings' component={Settings}></Route>
+                <Route path='/personalData' component={PersonalData}></Route>
             </Switch>
         </LocaleProvider>
     </HashRouter>

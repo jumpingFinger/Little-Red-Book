@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        button{
+            display: block;
+            width: 100px;
+            height: 100px;
+            font-size: 25px;
+        }
+    </style>
 </head>
 <body>
-<button id="button">测试</button>
+<button id="button">登录</button>
+<button id="button1">添加购物车</button>
+<button id="button2">支付</button>
+<button id="button3">查询已支付</button>
+
 </body>
 </html>
 <script src="../node_modules/axios/dist/axios.js"></script>
@@ -18,8 +30,11 @@
     axios.interceptors.response.use(result => result.data);
 
 
-    let button=document.querySelector('button');
-    async function queryBanner(item) {
+    let button=document.querySelector('#button');
+    let button1=document.querySelector('#button1');
+    let button2=document.querySelector('#button2');
+    let button3=document.querySelector('#button3');
+    async function queryEnter(item) {
         let a= await axios.post('/login/enter',item);
         console.log(a);
     }
@@ -29,13 +44,91 @@
         console.log(a);
     }
 
-    button.onclick=function (){
-        queryRegister({
-            "name": "金敏捷",
-            "email": "zhou_xiao_tian@163.com",
-            "phone": "13041086186",
-            "password": "26ef1520f9c16b70e23e0ad2"
-        });
+
+    async function queryBanner() {
+        let a= await axios.get('/shopping/banner');
+        console.log(a);
     }
+
+    async function queryShoppingList(item) {
+        let a= await axios.get('/shopping/list',{
+            params:{
+                ...item
+            }
+        });
+        console.log(a);
+    }
+
+    async function queryShoppingDetail(item) {
+        let a= await axios.get('/shopping/detail',{
+            params:{
+                ...item
+            }
+        });
+        console.log(a);
+    }
+
+    async function queryAddColloected(item) {
+        let a= await axios.post('/store/add',item);
+        console.log(a);
+    }
+
+    async function queryRemoveColloected(item) {
+        let a= await axios.post('/store/remove',item);
+        console.log(a);
+    }
+
+    async function queryColloectedInfo() {
+        let a= await axios.get('/store/info');
+        console.log(a);
+    }
+
+    async function queryPay(item) {
+        let a= await axios.post('/store/pay',item);
+        console.log(a);
+    }
+    async function paidInfo() {
+        let a= await axios.get('/store/paidInfo');
+        console.log(a);
+    }
+
+
+    button.onclick=function (){
+        queryEnter({
+            "name": "13041086186",
+            "password": "26ef1520f9c16b70e23e0ad2"
+        })
+    };
+
+    //=>添加批量添加
+    button1.onclick=function (){
+        queryAddColloected({
+           shoppingID:  JSON.stringify([12, 3, 4, 5])
+            //shoppingID:  '20'
+        });
+    };
+
+    // button1.onclick=function (){
+    //     queryRemoveColloected({
+    //          //shoppingID:  JSON.stringify([12, 3, 4, 5])
+    //         shoppingID:  '37'
+    //     });
+    // }
+
+    // button1.onclick=function (){
+    //     queryColloectedInfo();
+    // }
+
+    button2.onclick=function (){
+        queryPay({
+            shoppingID:  JSON.stringify([12, 3, 4, 5])
+            //shoppingID:  '20'
+        });
+    };
+    button3.onclick=function (){
+        paidInfo();
+    }
+
+
 
 </script>

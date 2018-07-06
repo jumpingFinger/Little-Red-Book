@@ -1,8 +1,10 @@
+
 const CONFIG = require('./config'),
-    // PERSONAL_PATH = './json/personal.json',
-    // COURSE_PATH = './json/course.json',
-    // STORE_PATH = './json/store.json',
     LOGIN_PATH='./json/person.json';
+    BANNER_PATH="./json/banner.json";
+    SHOPPING_PATH='./json/shopping.json';
+    COLLECTLIST_PATH='./json/collectList.json';
+
 
 /*-CREATE SERVER-*/
 const express = require('express'),
@@ -39,15 +41,24 @@ app.use(async (req, res, next) => {
     // req.courseDATA = JSON.parse(await readFile(COURSE_PATH));
     // req.storeDATA = JSON.parse(await readFile(STORE_PATH));
     req.personData=JSON.parse(await readFile(LOGIN_PATH));
+    req.bannerData=JSON.parse(await readFile(BANNER_PATH));
+    req.shoppingData=JSON.parse(await readFile(SHOPPING_PATH));
+    req.collectList=JSON.parse(await readFile(COLLECTLIST_PATH));
     next();
 });
+
+
+
+
 
 /*-ROUTE-*/
 //=>EXPRESS中的路由管控，例如：请求的API接口地址是 '/personal/xxx' ，直接进入到 './routes/personal' 这个模块执行代码
 // app.use('/course', require('./routes/course'));
 // app.use('/personal', require('./routes/personal'));
 // app.use('/store', require('./routes/store'));
-app.use('/login', require('./routes/person'));
+app.use('/login', require('./routes/login'));
+app.use('/shopping', require('./routes/shopping'));
+app.use('/store',require('./routes/store'));
 app.use((req, res, next) => {
     res.status(404);
     res.send('NOT FOUND!');

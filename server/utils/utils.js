@@ -14,6 +14,42 @@ function ADD_STORE(req, res, courseID) {
     return writeFile(STORE_PATH, req.storeDATA);
 }
 
+
+function dedupe(array) {
+    return Array.from(new Set(array));
+}
+
+function isExit(data, id) {
+    if(typeof id === "number"){
+        let isExitCur = data.find(item => item === id);
+        !isExitCur ? data.push(id) : null;
+        return;
+    }
+    return dedupe(data.concat(id));
+}
+
+function removeEle (data,id){
+    if(typeof id === "number"){
+        let index=data.indexOf(id);
+        data.splice(index,1);
+        return ;
+    }
+    let temp = [],
+        tempAry = [];
+    for (let i = 0; i < id.length; i++) {
+        temp[id[i]] = true;
+    }
+    for (let i = 0; i < data.length; i++) {
+        if (!temp[data[i]]) {
+            tempAry.push(data[i]);
+        }
+    }
+    return tempAry
+
+}
 module.exports = {
-    ADD_STORE
+    ADD_STORE,
+    isExit,
+    removeEle
 };
+

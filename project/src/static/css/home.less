@@ -1,35 +1,88 @@
-
-.wrapper-switch{
-  position: fixed;
-  left: 0;
-  top:1.05rem;
-  height: 100%;
+.homeBox {
   width: 100%;
- // background: red;
+  .wrapper-switch{
+    position: fixed;
+    left: 0;
+    top:1.05rem;
+    width: 100%;
+    background: #D5D5D5;
 
+    .ant-carousel .slick-slide {
+      text-align: center;
+      height:12rem;
+      //height: 100%;
+      //line-height: 100%;
+      //background: #364d79;
+      overflow-x: hidden;
+      padding-top: .2rem;
 
-  .ant-carousel .slick-slide {
-    text-align: center;
-    height: 100%;
-    line-height: 100%;
-    background: #364d79;
-    overflow: hidden;
+      .attentionBox{
+        width: 100%;
+        li{
+          background: #FFF;
+          margin-bottom: .2rem;
+          .header{
+            display:block;
+            padding: .3rem .2rem;
+            width: 100%;
+            height: 1.5rem;
+            text-align: left;
+            .headPortrait{
+              display: inline-block;
+              margin-left: .3rem;
+              height: .8rem;
+              width: .8rem;
+              img {
+                border-radius: 100%;
+                display: inline-block;
+                height: .8rem;
+                width: .8rem;
+                //width: 100%;
+                //height: 100%;
+              }
+            }
+            h4{
+              margin-left: .2rem;
+              display: inline-block;
+            }
+          }
+          .imageList{
+            display: block;
+            img{
+              display: inline-block;
+              height: 2rem;
+              width: 2rem;
+              margin-right: .2rem;
+            }
+          }
+          .notes{
+            line-height: .5rem;
+            padding: .5rem;
+            text-align: left;
+          }
+        }
+      }
 
-    .navTitle{
-      display: block;
-      white-space:nowrap;
-      li{
-        display: inline-block;
-        height: .3rem ;
-        line-height: .3rem;
-        font-size: 12px;
-        margin-right:.2rem;
-        text-align: center;
-        color: #333;
+      .navTitle{
+        border-radius: .1rem;
+        background: #F8F8FF;
+        display: block;
+        white-space:nowrap;
+        padding: 0.1rem 0.1rem;
+        li{
+          display: inline-block;
+          height: .4rem ;
+          line-height: .4rem;
+          font-size: 14px;
+          margin-right:.45rem;
+          text-align: center;
+          color: #333;
+          vertical-align: center;
+        }
       }
     }
+
+
+
   }
-
-
-
 }

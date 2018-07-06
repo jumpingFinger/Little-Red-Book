@@ -21,7 +21,9 @@ class Settings extends React.Component{
             </Header>
             <div className={'containerBox'}>
                 <ul>
-                    <li><span>个人资料</span><Icon type="right" className={'icon'}/></li>
+                    <li><span>个人资料</span><Icon type="right" className={'icon'} onClick={()=>{
+                        this.props.history.push('/personalData')
+                    }}/></li>
                     <li><span>账号与安全</span><Icon type="right" className={'icon'}/></li>
                     <li><span>我赞过的</span><Icon type="right" className={'icon'}/></li>
                     <li><span>功能申请</span><Icon type="right" className={'icon'}/></li>
