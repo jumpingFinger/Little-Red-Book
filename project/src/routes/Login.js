@@ -1,18 +1,23 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Switch,Route,Redirect} from "react-router-dom";
+import Land from "./login/Land";
+import Register from "./login/Register";
+import LoginInfo from "./login/LoginInfo";
 
-export default class Login extends React.Component{
-    constructor(props,context){
-        super(props,context);
+export default class banner extends React.Component {
+    constructor(props) {
+        super(props);
     }
 
-    render(){
-        return <div>
-            这里是登录
-            <Link to="/home">
-                <button >点我跳转</button>
-            </Link>
-
-        </div>
+    render() {
+        return <section>
+            <Switch>
+                <Route path={'/login'} exact component={LoginInfo}/>
+                <Route path={'/login/land'}  component={Land}/>
+                <Route path={'/login/register'}  component={Register}/>
+                <Redirect to="/login"/>
+            </Switch>
+        </section>;
     }
 }
+

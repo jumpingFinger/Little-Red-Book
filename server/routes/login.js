@@ -5,21 +5,21 @@ const express = require('express'),
     utils = require('../utils/utils');
 
 //=>把临时存储在SESSION中的STORE信息，增加到JSON文件中（登录后）
-function add_temp_store(req, res) {
-    let storeList = req.session.storeList || [];
-    if (storeList.length === 0) return;
-    storeList.map(item => {
-        return utils.ADD_STORE(req, res, parseFloat(item));
-    });
-    Promise.all(storeList).then(() => {
-        //...
-    });
-    req.session.storeList = [];
-}
+// function add_temp_store(req, res) {
+//     let storeList = req.session.storeList || [];
+//     if (storeList.length === 0) return;
+//     storeList.map(item => {
+//         return utils.ADD_STORE(req, res, parseFloat(item));
+//     });
+//     Promise.all(storeList).then(() => {
+//         //...
+//     });
+//     req.session.storeList = [];
+// }
 
 route.post('/enter', (req, res) => {
     let {name, password} = req.body || {};
-    //password = password.substr(4, 24).split('').reverse().join('');
+    password = password.substr(4, 24).split('').reverse().join('');
     let nameExist = false;
     const item = req.personData.find(item => {
         nameExist = item.name === name || item.email === name || item.phone == name;
@@ -27,7 +27,6 @@ route.post('/enter', (req, res) => {
     });
     if (item) {
         req.session.personID = parseFloat(item.id);
-        add_temp_store(req, res);
         res.send({state: true, message: '验证成功'});
         return;
     }
@@ -37,19 +36,10 @@ route.post('/enter', (req, res) => {
     res.send({state: false, message: '账号不存在'});
 });
 
-// route.get('/login', (req, res) => {
-//     const personID = req.session.personID;
-//     if (personID) {
-//         res.send({code: 0, msg: 'OK!'});
-//         return;
-//     }
-//     res.send({code: 1, msg: 'NO!'});
-// });
-
 route.post('/register', (req, res) => {
-
+    console.log(req.body);
     let exitPhone = req.personData.some(item => {
-        return parseFloat(item.phone) == parseFloat(req.body.phone);
+        return parseFloat(item.phone) === parseFloat(req.body.phone);
     });
     if (exitPhone) return res.send({state: 2, message: '电话号码已存在'});
     let personInfo = {
@@ -63,10 +53,11 @@ route.post('/register', (req, res) => {
     personInfo = {...personInfo, ...req.body};
     req.personData.push(personInfo);
     writeFile(LOGIN_PATH, req.personData).then(() => {
-        req.session.personID = parseFloat(personInfo.id);
-        add_temp_store(req, res);
+        //req.session.personID = parseFloat(personInfo.id);
         res.send({state: 0, message: '注册成功'});
+        console.log(1);
     }).catch(() => {
+        console.log(2);
         res.send({state: 1, message: '注册失败'});
     });
 });
@@ -83,7 +74,6 @@ route.post('/register', (req, res) => {
 //     }
 //     res.send({code: 1, msg: 'NO!', data: null});
 // });
-
 
 route.get('/out', (req, res) => {
     req.session.personID = null;
