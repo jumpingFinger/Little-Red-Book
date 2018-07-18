@@ -1,1 +1,215 @@
-[{"id":1,"name":"帅帅","email":"724015229300@qq.com","phone":"1234226789456","password":"8376ac810bb9f231d28fcf1f"},{"id":2,"name":"马少帅","email":"724015930@qq.com","phone":"17696081782","password":"02354958377f51cee05afd81"}]
+[
+  {
+    "id": 1,
+    "name": "写的心凉凉",
+    "email": "724015930@qq.com",
+    "phone": "17696081782",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://localhost:8000/file/upload_15b10d236f8ce1fde0353745892a5f95.jpeg",
+    "birth": "2010-03-17",
+    "sex": "0",
+    "bio": "我学的这么菜怎么能找工作啊,我写的好累",
+    "follow": [
+      2,
+      3
+    ],
+    "fens": [
+      1
+    ],
+    "node": [
+      1,
+      2,
+      9
+    ],
+    "draft": [
+      1
+    ],
+    "likes": [
+      4,
+      9,
+      1,
+      15,
+      16,
+      22
+    ],
+    "collect": [
+      3,
+      5,
+      6,
+      8,
+      9
+    ]
+  },
+  {
+    "id": 2,
+    "name": "帅帅",
+    "email": "123456789@qq.com",
+    "phone": "18511266508",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1531410825809&di=760b4b008473514bc2023512dccf0894&imgtype=0&src=http%3A%2F%2Fwww.qqzhi.com%2Fuploadpic%2F2014-05-28%2F033523229.jpg",
+    "birth": "1991-07-25",
+    "sex": 0,
+    "bio": "好好学习",
+    "follow": [
+      1
+    ],
+    "fens": [
+      1
+    ],
+    "node": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "likes": [
+      1,
+      2,
+      5,
+      7,
+      8
+    ],
+    "collect": [
+      1,
+      2,
+      5,
+      7,
+      8
+    ]
+  },
+  {
+    "id": 3,
+    "name": "金敏捷",
+    "email": "1223515114@qq.com",
+    "phone": "15715133995",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://tx.haiqq.com/uploads/allimg/150327/21001TR3-1.jpg",
+    "birth": "1995-08-25",
+    "sex": 0,
+    "bio": "组长已死,有事烧纸",
+    "follow": [
+      1
+    ],
+    "fens": [
+      1
+    ],
+    "node": [
+      7,
+      8
+    ],
+    "likes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "collect": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "id": 4,
+    "name": "忽而",
+    "email": "12235114@qq.com",
+    "phone": "155133995",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://tx.haiqq.com/uploads/allimg/150327/21001TR3-1.jpg",
+    "birth": "1995-08-25",
+    "sex": 0,
+    "bio": "组长已死,有事烧纸",
+    "follow": [],
+    "fens": [],
+    "node": [],
+    "likes": [],
+    "collect": []
+  },
+  {
+    "id": 5,
+    "name": "哈哈",
+    "email": "12235114@qq.com",
+    "phone": "157153995",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://tx.haiqq.com/uploads/allimg/150327/21001TR3-1.jpg",
+    "birth": "1995-08-25",
+    "sex": 0,
+    "bio": "组长已死,有事烧纸",
+    "follow": [
+      1
+    ],
+    "fens": [],
+    "node": [],
+    "likes": [],
+    "collect": []
+  },
+  {
+    "id": 6,
+    "name": "123",
+    "email": "1223515114@qq.com",
+    "phone": "15715133995",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://tx.haiqq.com/uploads/allimg/150327/21001TR3-1.jpg",
+    "birth": "1995-08-25",
+    "sex": 0,
+    "bio": "组长已死,有事烧纸",
+    "follow": [],
+    "fens": [],
+    "node": [],
+    "likes": [],
+    "collect": []
+  },
+  {
+    "id": 7,
+    "name": "哈哈24234",
+    "email": "1223515114@qq.com",
+    "phone": "15715133995",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://tx.haiqq.com/uploads/allimg/150327/21001TR3-1.jpg",
+    "birth": "1995-08-25",
+    "sex": 0,
+    "bio": "组长已死,有事烧纸",
+    "follow": [],
+    "fens": [],
+    "node": [],
+    "likes": [],
+    "collect": []
+  },
+  {
+    "id": 8,
+    "name": "经费达可令肌肤",
+    "email": "12215114@qq.com",
+    "phone": "1571133995",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://tx.haiqq.com/uploads/allimg/150327/21001TR3-1.jpg",
+    "birth": "1995-08-25",
+    "sex": 0,
+    "bio": "组长已死,有事烧纸",
+    "follow": [
+      1
+    ],
+    "fens": [],
+    "node": [],
+    "likes": [],
+    "collect": []
+  },
+  {
+    "id": 9,
+    "name": "哈哈",
+    "email": "1223515114@qq.com",
+    "phone": "15715133995",
+    "password": "02354958377f51cee05afd81",
+    "userImg": "http://tx.haiqq.com/uploads/allimg/150327/21001TR3-1.jpg",
+    "birth": "1995-08-25",
+    "sex": 0,
+    "bio": "组长已死,有事烧纸",
+    "follow": [
+      1
+    ],
+    "fens": [],
+    "node": [],
+    "likes": [],
+    "collect": []
+  }
+]

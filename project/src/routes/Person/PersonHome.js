@@ -6,7 +6,8 @@ import More from "../../routes/More";
 import {Icon} from 'antd';
 import "../../static/css/person.less";
 import action from "../../store/action/index";
-
+import {withRouter} from "react-router-dom";
+import  List from "../../component/List";
 
 const settings = {
     dots: false,
@@ -21,16 +22,31 @@ class PersonHome extends React.Component {
         };
     }
 
+   async componentDidMount(){
+       let {personInfo,queryPersonInfo,queryMyNode,nodeList} = this.props;
+       if (personInfo && personInfo.id === 0) {
+         await queryPersonInfo();
+         await queryMyNode();
+       }else if(personInfo.node.length !== nodeList.length){
+           await queryMyNode();
+       }
+    }
     render() {
+        let {personInfo,nodeList}=this.props;
+        if(personInfo.id===0 ||personInfo.node.length !== nodeList.length) return "";
+        let {name,userImg,follow,fens,bio,likes,collect,node}=personInfo;
         let headerStyle={
             background:'rgba(0,0,0,0)',
             borderBottom:0
         };
-
+        nodeList.forEach(item=>{
+            item.name=name;
+            item.userImg=userImg;
+        });
         return (<section className={'personBox'}>
             <div>
                 <Header headerStyle={headerStyle}>
-                    <Icon type="menu-fold" className={'icon'} onClick={() => {
+                    <Icon type="menu-fold" style={{color:"#fff"}} className={'icon'} onClick={() => {
                         this.props.changeMoreShow(true);
                     }}/>
                     <More/>
@@ -39,23 +55,23 @@ class PersonHome extends React.Component {
                 <div className={'container'}>
                     <div className={'infoShow'}>
                         <div className="headPortrait">
-                            <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530785812&di=314f41e1b3c1e6827a51090941f4d904&src=http://img3.duitang.com/uploads/item/201409/17/20140917223742_GKzJR.jpeg" alt=""/>
+                            <img src={userImg} alt=""/>
                         </div>
-                        <span>星辰</span>
+                        <span>{name}</span>
                         <div className={'vip'}>
                             <em>成为黑卡会员</em>
                         </div>
                         <ul>
                             <li>
-                                <span className={'number'}>1</span>
+                                <span className={'number'}>{follow.length}</span>
                                 <span className={'title'}>关注</span>
                             </li>
                             <li>
-                                <span className={'number'}>0</span>
+                                <span className={'number'}>{fens.length}</span>
                                 <span className={'title'}>粉丝</span>
                             </li>
                             <li>
-                                <span className={'number'}>0</span>
+                                <span className={'number'}>{likes.length+collect.length}</span>
                                 <span className={'title'}>获赞与收藏</span>
                             </li>
                         </ul>
@@ -77,23 +93,25 @@ class PersonHome extends React.Component {
                             </li>
                         </ul>
                         <div className={'describe'}>
-                            添加个人描述,可以让大家更好地认识你
+                            {
+                                bio.length>=1?bio: '添加个人描述,可以让大家更好地认识你'
+                            }
                         </div>
                     </div>
                     <div className={'note'}>
                         <div className={'title'}>
-                            <h4>笔记*1</h4>
-                            <h4>专辑*1</h4>
+                            <h4>笔记*{node.length}</h4>
+                            <h4>专辑*{collect.length}</h4>
                         </div>
                         <div className={'detail'}>
-                            这里是内容
+                            <List data={nodeList} type={"myNode"}/>
                         </div>
                     </div>
+                    <div className={'maskLayer'}/>
                 </div>
-                <Footer></Footer>
+                <Footer/>
             </div>
         </section>)
     }
 }
-
-export default connect(state => ({...state.more}), action.more)(PersonHome);
+export default withRouter(connect(state => ({...state.more,...state.person}), {...action.more,...action.person})(PersonHome));

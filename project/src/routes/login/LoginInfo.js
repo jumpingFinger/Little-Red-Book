@@ -18,8 +18,8 @@ class LoginInfo extends React.Component {
             <div className="login" >
                 <h2>小蓝书</h2>
                 <p>记录我的生活</p>
-                <Link to="/login/land" exact className="land">登陆</Link>
-                <Link to="/login/register"  exact className="register">注册</Link>
+                <Link to="/login/land"  className="land">登陆</Link>
+                <Link to="/login/register"   className="register">注册</Link>
                 <Zhanglei/>
             </div>
         </div>

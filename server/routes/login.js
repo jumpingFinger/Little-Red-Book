@@ -37,7 +37,6 @@ route.post('/enter', (req, res) => {
 });
 
 route.post('/register', (req, res) => {
-    console.log(req.body);
     let exitPhone = req.personData.some(item => {
         return parseFloat(item.phone) === parseFloat(req.body.phone);
     });
@@ -47,7 +46,17 @@ route.post('/register', (req, res) => {
         name: '',
         email: '',
         phone: '',
-        password: '8376ac810bb9f231d28fcf1f'
+        password: '8376ac810bb9f231d28fcf1f',
+        userImg: "https://img.xiaohongshu.com/avatar/5a96b46ad1d3b97ead20f245.jpg@160w_160h_92q_1e_1c_1x.jpg",
+        birth: "1993-10-15",
+        sex: "1",
+        bio: "超级帅的男孩子",
+        follow: [
+
+        ],
+        fens: [
+
+        ]
     };
     req.body.password = req.body.password.substr(4, 24).split('').reverse().join('');
     personInfo = {...personInfo, ...req.body};
@@ -55,25 +64,11 @@ route.post('/register', (req, res) => {
     writeFile(LOGIN_PATH, req.personData).then(() => {
         //req.session.personID = parseFloat(personInfo.id);
         res.send({state: 0, message: '注册成功'});
-        console.log(1);
     }).catch(() => {
-        console.log(2);
         res.send({state: 1, message: '注册失败'});
     });
 });
 
-// route.get('/info', (req, res) => {
-//     const personID = req.session.personID;
-//     if (personID) {
-//         let personInfo = req.personalDATA.find(item => {
-//             return parseFloat(item.id) === personID;
-//         });
-//         personInfo.password = null;
-//         res.send({code: 0, msg: 'OK!', data: personInfo});
-//         return;
-//     }
-//     res.send({code: 1, msg: 'NO!', data: null});
-// });
 
 route.get('/out', (req, res) => {
     req.session.personID = null;

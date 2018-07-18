@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
+import {withRouter,Link} from "react-router-dom";
 import "../static/css/more.less";
 import {Icon} from "antd";
 import Transition from 'react-transition-group/Transition';
@@ -21,37 +21,19 @@ const transitionStyles = {
 class More extends React.Component{
     constructor(props,context){
         super(props,context);
-        // this.state= {
-        //     isShow: this.props.moreIsShow
-        // }
+    }
+    componentDidMount(){
+        //console.log(this.refs.bb.refs.aa);
     }
 
-    //=>真是看不懂 (不知道为啥)
-    // componentWillReceiveProps(){
-    //     console.log(this.props.moreIsShow);
-    //     this.setState({
-    //         isShow:this.props.moreIsShow
-    //     })
-    // }
-    // componentWillUpdate(){
-    //     console.log(this.props.moreIsShow);
-    // }
-    //为啥
-    // componentDidUpdate(){
-    //     //console.log(this.props.moreIsShow);
-    //         this.setState({
-    //             isShow:this.props.moreIsShow
-    //         })
-    // }
-
     render(){
-        console.log(this.props.moreIsShow);
+        let {personInfo:{draft}}=this.props;
         return <div>
             <Transition in={this.props.moreIsShow} timeout={duration} onEnter={(node)=>{
                 node.style.display='block'
             }} onExit={(node)=>{
                 node.style.display='none'
-            }}>
+            }} ref={'bb'}>
                 {
                     (state)=>(
                         <div className={'moreBox'} style={{
@@ -67,17 +49,33 @@ class More extends React.Component{
                                 <h3>更多</h3>
                                 <div className={'containerList'}>
                                     <ul>
-                                        <li>
+                                        <li onClick={ async(ev)=>{
+                                            ev.preventDefault();
+                                            await this.props.changeMoreShow(false);
+                                            this.props.history.push('/myAttentionPerson');
+                                        }}>
                                             <i><Icon type="eye-o" /></i>
                                             <span>我的关注</span>
                                         </li>
-                                        <li>
+                                        <li onClick={ async(ev)=>{
+                                            ev.preventDefault();
+                                            await this.props.changeMoreShow(false);
+                                            this.props.history.push('/myLikes');
+                                        }}>
                                             <i><Icon type="star-o" /></i>
                                             <span>我的收藏</span>
                                         </li>
-                                        <li>
+
+                                        <li onClick={ async(ev)=>{
+                                            ev.preventDefault();
+                                            await this.props.changeMoreShow(false);
+                                            this.props.history.push('/myDraft');
+                                        }}>
                                             <i><Icon type="folder" /></i>
                                             <span>我的草稿</span>
+                                            <span className={'number'}>
+                                          {draft.length===0?"":draft.length}
+                                          </span>
                                         </li>
                                     </ul>
                                     <ul>
@@ -107,13 +105,14 @@ class More extends React.Component{
                                             <i><Icon type="phone" /></i>
                                             <span>客服中心</span>
                                         </li>
-                                        <li>
+                                        <li onClick={async(ev)=>{
+                                            //=>心得
+                                            ev.preventDefault();
+                                            await this.props.changeMoreShow(false);
+                                            this.props.history.push('/settings');
+                                        }}>
                                             <i><Icon type="setting" /></i>
-                                            <span onClick={()=>{
-                                                //=>心得
-                                                this.props.changeMoreShow(false);
-                                                this.props.history.push('/settings');
-                                            }}>设置</span>
+                                            <span >设置</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -125,7 +124,7 @@ class More extends React.Component{
         </div>
     }
 }
-export default withRouter(connect(state=>({...state.more}),action.more)(More));
+export default withRouter(connect(state=>({...state.more,...state.person}),action.more)(More));
 
 
 

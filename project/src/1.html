@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    // let s="MA IS AAA" ,
+    //     B="MA IS BBB";
+    // function fn(a,b) {
+    //     a=a.split(' ');
+    //     b=b.split(' ');
+    //     let obj={};
+    //     a.forEach(item=>{obj[item]=true;});
+    //     let c=b.filter(item=>obj[item]);
+    //     return c[0]
+    // }
+    // console.log(fn(s, B));
+
+    function fn(n){
+        return String.fromCharCode("a".charCodeAt()+Math.floor(Math.max(99-n,0)/10))
+    }
+    console.log(fn(100));
+
+
+    function fn1(ary) {
+        ary.sort((a,b)=>a-b);
+        let newAry= ary.splice(ary.length-3);
+        return JSON.stringify([ary,newAry]);
+    }
+
+    console.log(fn1( [1,2,3,7,8,9,15,17,18,19]));
+
+
+    function fn4(ary){
+        let newAry=[],
+            startIndex=null;
+        ary.sort((a,b)=>a-b).forEach((item,index)=>{
+            if(ary[index+1]-item!==1){
+                if(index===0){
+                    newAry.push([item]);
+                    startIndex=index+1;
+                    return;
+                }
+                if(!startIndex){
+                    startIndex=0
+                }
+                newAry.push(ary.slice(startIndex,index+1));
+                startIndex=index+1;
+            }
+        });
+        return newAry;
+    }
+    console.log(fn4([1,2,3,7,8,9,15,17,18,19]));
+
+    // var arr = [1, 2, 3, [3, 3, 3, [5, 4, 5, 6, 6, 7, 8]],
+    //     [333, 4444]
+    // ];
+    // function flatten(arr){
+    //     return arr.reduce(function(pre,cur){
+    //         if(!Array.isArray(cur)){
+    //             return [...pre,cur];
+    //         }else{
+    //             return [...pre,...flatten(cur)]
+    //         }
+    //     },[])
+    // }
+    // console.log(flatten(arr))
+
+    // let fn11=(ary)=>{
+    //     return ary.reduce((pre,cur)=>{
+    //         if(!Array.isArray(cur)){
+    //             return [...pre,cur];
+    //         }else{
+    //             return [...pre,...fn11(cur)]
+    //         }
+    //     },[])
+    // }
+
+
+    [1,2,3].reduce((pre,next)=>{
+        console.log(pre, next);
+        return pre+next
+    },0)
+</script>

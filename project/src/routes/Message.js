@@ -18,8 +18,8 @@ class Message extends React.Component{
     render(){
         return <section >
             <Switch>
-                <Route path='/message' component={MessageHome}></Route>
-                <Redirect to='/message'></Redirect>
+                <Route path='/message' component={MessageHome}/>
+                <Redirect to='/message'/>
             </Switch>
         </section>
     }

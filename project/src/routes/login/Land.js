@@ -4,6 +4,7 @@ import Zhanglei from "../../component/zhanglei/Zhanglei"
 import {Link} from "react-router-dom";
 import md5 from "blueimp-md5";
 import {loginEnterAPI} from "../../api/login";
+import action from "../../store/action"
 
 
 import "../../static/css/Land.less";
@@ -25,10 +26,17 @@ function loginFail() {
 class Land extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.state={
+            isLoading:false
+        }
     }
 
     handleSubmit = ev => {
         ev.preventDefault(); //阻止按钮点击的默认行为
+        if(this.state.isLoading) return;
+        this.setState({
+            isLoading:true
+        });
         this.props.form.validateFields(async (err, values) => {
             if (!err) {
                 let {userName, userPass} = values;
@@ -37,7 +45,11 @@ class Land extends React.Component {
                     name: userName,
                     password: userPass
                 });
+                this.setState({
+                    isLoading:false
+                });
                 if (result.state=== true) {
+                    this.props.queryPersonInfo();
                     this.props.history.push("/HOME");
                     return;
                 }
@@ -72,4 +84,4 @@ class Land extends React.Component {
     }
 }
 
-export default Form.create()(connect()(Land));
+export default Form.create()(connect(state=>({...state.person}),action.person)(Land));

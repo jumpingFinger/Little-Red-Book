@@ -10,3 +10,8 @@ export function loginEnterAPI(item){
 export function loginRegister(item){
     return axios.post('/login/register',item);
 }
+
+//退出
+export function loginOut(item){
+    return axios.get('/login/out',item);
+}

@@ -16,8 +16,6 @@ import './static/css/reset.min.css';
 import "./static/css/common.less";
 
 
-
-
 //导入组公共组件
 import Home from "./routes/Home";
 import Login from "./routes/Login";
@@ -27,6 +25,10 @@ import Shopping from "./routes/Shoping";
 import PersonalData from "./routes/PersonalData";
 import More from "./routes/More";
 import Settings from "./routes/Settings";
+import Mynotes from "./routes/Mynotes";
+import MyDraft from "./routes/MyDraft";
+import MyLikes from "./routes/MyLikes";
+import MyAttentionPerson from "./routes/MyAttentionPerson";
 
 
 render(<Provider store={store}>
@@ -38,10 +40,15 @@ render(<Provider store={store}>
                 <Route path="/home"  component={Home}/>
                 <Route path="/person"  component={Person}/>
                 <Route path="/message"  component={Message}/>
+                <Route path='/myNotes' component={Mynotes}/>
                 <Route path='/shopping' component={Shopping}/>
                 <Route path='/more' component={More}/>
                 <Route path='/settings' component={Settings}/>
                 <Route path='/personalData' component={PersonalData}/>
+                <Route path={'/myDraft'} component={MyDraft}/>
+                <Route path="/myLikes" component={MyLikes}/>
+                <Route path="/myAttentionPerson" component={MyAttentionPerson}/>
+                <Redirect to="/login"/>
             </Switch>
         </LocaleProvider>
     </HashRouter>

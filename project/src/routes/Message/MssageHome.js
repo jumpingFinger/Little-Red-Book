@@ -84,7 +84,7 @@ class MssageHome extends React.Component {
                     </div>
                 </div>
 
-                <Footer></Footer>
+                <Footer/>
             </div>
         </section>)
     }

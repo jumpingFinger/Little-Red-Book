@@ -1,14 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Switch,Route,Redirect} from "react-router-dom";
 import {Icon} from "antd";
 import Header from "../component/Header";
 import  "../static/css/settings.less";
 import action from "../store/action/index";
+import {loginOut} from "../api/login"
 class Settings extends React.Component{
     constructor(props,context){
         super(props,context);
-        console.log(this.props);
     }
 
     render(){
@@ -39,7 +38,10 @@ class Settings extends React.Component{
                     <li><span>意见反馈</span><Icon type="right" className={'icon'}/></li>
                 </ul>
             </div>
-            <div className={'exit'}>登出账户</div>
+            <div className={'exit'} onClick={()=>{
+                loginOut();
+                this.props.history.push("./login");
+            }}>登出账户</div>
         </section>
     }
 }

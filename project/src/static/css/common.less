@@ -6,6 +6,9 @@ html {
   font-size: 100px; /*750:1REM=100PX*/
 }
 
+body{
+  height: auto;
+}
 
 #root {
   margin: 0 auto;
@@ -24,6 +27,12 @@ html {
   background: #FFF;
 
   display: flex;
+
+  .icon{
+    margin-top: .25rem;
+    font-size: 30px;
+    color: #9D0800;
+  }
   a {
     flex: 1;
     text-align: center;
@@ -33,6 +42,7 @@ html {
       display: block;
       margin-top: .12rem;
       font-size: .4rem;
+
     }
 
     span {
@@ -43,7 +53,7 @@ html {
     }
 
     &.active {
-      color: #9D0800;
+      color: #e20800;
       font-weight: bold;
     }
   }
@@ -88,10 +98,110 @@ html {
     font-weight: 500;
     text-align: center;
     span{
-      margin-left: -0.65rem;
+      margin-left: -0.2rem;
     }
   }
+  .done{
+    position: absolute;
+    top: 0;
+    right:.35rem;
+    font-size: 18px;
+    color: #db0000;
+  }
+  .cancel{
+    position: absolute;
+    top: 0;
+    left: .3rem;
 
+    span{
+      color: #c8c8c8;
+      font-size: 16px;
+    }
+  }
+}
+
+.recommendList{
+  width: 100%;
+  overflow-x: hidden;
+  margin-top: 1.2rem;
+  ul{
+    width: 100%;
+    li{
+      box-sizing: border-box;
+      float: left;
+      width: 44%;
+      overflow-x: hidden;
+      margin: .1rem .2rem;
+      border: 1px solid #bfbfbf;
+      border-radius: 12px;
+      box-shadow: 2px 2px 5px 2px #dddddd;
+
+      img{
+        display: block;
+        //padding: .1rem .2rem;
+        width: 100%;
+        height: 4rem;
+      }
+      .content{
+        //display: block;
+        padding: 0 .25rem;
+        line-height: .4rem;
+        height: .8rem;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+        color: #232323;
+        font-size: 13px;
+      }
+      .footer{
+        width: 100%;
+        overflow: hidden;
+        height: 1rem;
+        line-height: 1rem;
+        padding-left: .1rem;
+        .left{
+          float: left;
+       //   padding-left: .15rem;
+          height: .8rem;
+          width: 2.2rem;
+          //overflow-x: hidden;
+          //text-overflow: clip;
+          img{
+            position: relative;
+            left: 0;
+            top: -0.04rem;
+            display: inline-block;
+            width: .7rem;
+            height: .7rem;
+            border-radius: 50%;
+          }
+          .name{
+            margin-left: 0.05rem;
+            font-size: 12px;
+            height: .8rem;
+            line-height: .8rem;
+          }
+        }
+        .right{
+          float: right;
+          height: 1rem;
+          line-height: 1rem;
+          //padding-right: .2rem;
+          width: .8rem;
+          color: #4a4a4a;
+          text-align: center;
+          .active1{
+            color: red;
+          }
+          i{
+            margin-right: .1rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 
