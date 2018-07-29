@@ -22,18 +22,29 @@ class PersonHome extends React.Component {
         };
     }
 
+    componentWillUnmount() {
+        // if (this.swiperID) { // 销毁swiper
+        //     this.swiperID.destroy()
+        // }
+       // console.log(" person 销毁");
+    }
+
    async componentDidMount(){
        let {personInfo,queryPersonInfo,queryMyNode,nodeList} = this.props;
+       console.log(personInfo.id === 0,personInfo.id);
        if (personInfo && personInfo.id === 0) {
          await queryPersonInfo();
          await queryMyNode();
        }else if(personInfo.node.length !== nodeList.length){
            await queryMyNode();
        }
-    }
+
+       console.log("person didmout");
+   }
     render() {
         let {personInfo,nodeList}=this.props;
-        if(personInfo.id===0 ||personInfo.node.length !== nodeList.length) return "";
+        console.log( personInfo.node.length !== nodeList.length,personInfo.node.length,nodeList.length);
+        if(personInfo.id===0 || personInfo.node.length !== nodeList.length) return "";
         let {name,userImg,follow,fens,bio,likes,collect,node}=personInfo;
         let headerStyle={
             background:'rgba(0,0,0,0)',

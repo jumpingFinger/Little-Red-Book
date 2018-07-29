@@ -21,42 +21,42 @@
     //     return c[0]
     // }
     // console.log(fn(s, B));
-
-    function fn(n){
-        return String.fromCharCode("a".charCodeAt()+Math.floor(Math.max(99-n,0)/10))
-    }
-    console.log(fn(100));
-
-
-    function fn1(ary) {
-        ary.sort((a,b)=>a-b);
-        let newAry= ary.splice(ary.length-3);
-        return JSON.stringify([ary,newAry]);
-    }
-
-    console.log(fn1( [1,2,3,7,8,9,15,17,18,19]));
+    //
+    // function fn(n){
+    //     return String.fromCharCode("a".charCodeAt()+Math.floor(Math.max(99-n,0)/10))
+    // }
+    // console.log(fn(100));
 
 
-    function fn4(ary){
-        let newAry=[],
-            startIndex=null;
-        ary.sort((a,b)=>a-b).forEach((item,index)=>{
-            if(ary[index+1]-item!==1){
-                if(index===0){
-                    newAry.push([item]);
-                    startIndex=index+1;
-                    return;
-                }
-                if(!startIndex){
-                    startIndex=0
-                }
-                newAry.push(ary.slice(startIndex,index+1));
-                startIndex=index+1;
-            }
-        });
-        return newAry;
-    }
-    console.log(fn4([1,2,3,7,8,9,15,17,18,19]));
+    // function fn1(ary) {
+    //     ary.sort((a,b)=>a-b);
+    //     let newAry= ary.splice(ary.length-3);
+    //     return JSON.stringify([ary,newAry]);
+    // }
+    //
+    // console.log(fn1( [1,2,3,7,8,9,15,17,18,19]));
+    //
+    //
+    // function fn4(ary){
+    //     let newAry=[],
+    //         startIndex=null;
+    //     ary.sort((a,b)=>a-b).forEach((item,index)=>{
+    //         if(ary[index+1]-item!==1){
+    //             if(index===0){
+    //                 newAry.push([item]);
+    //                 startIndex=index+1;
+    //                 return;
+    //             }
+    //             if(!startIndex){
+    //                 startIndex=0
+    //             }
+    //             newAry.push(ary.slice(startIndex,index+1));
+    //             startIndex=index+1;
+    //         }
+    //     });
+    //     return newAry;
+    // }
+    // console.log(fn4([1,2,3,7,8,9,15,17,18,19]));
 
     // var arr = [1, 2, 3, [3, 3, 3, [5, 4, 5, 6, 6, 7, 8]],
     //     [333, 4444]
@@ -83,8 +83,251 @@
     // }
 
 
-    [1,2,3].reduce((pre,next)=>{
-        console.log(pre, next);
-        return pre+next
-    },0)
+    // [1,2,3].reduce((pre,next)=>{
+    //     console.log(pre, next);
+    //     return pre+next
+    // },0)
+
+    // let result=[];
+    // function fn(n){
+    //     if(parseFloat(n)===1){
+    //         return 1
+    //     }else if(parseFloat(n)===2){
+    //         return 1
+    //     }else{
+    //         if(result[n]){
+    //             return result[n]
+    //         }else{
+    //             result[n]= arguments.callee(n-1)+arguments.callee(n-2);
+    //             return result[n];
+    //         }
+    //     }
+    // }
+    // console.log(fn(6));
+
+
+    // 数组ary从p到q是有顺序的，从q到r是有顺序的
+    // function merge(ary,p,q,r){
+    //     var a = [],
+    //         b = [];
+    //     for(var i = p;i<=q;i++){
+    //         a[a.length] = ary[i];
+    //     }
+    //     console.log(a,"a");
+    //     for(i = q+1;i<r+1;i++){
+    //         b[b.length] = ary[i];
+    //     }
+    //     console.log(b,"b");
+    //     a[a.length] = Infinity;
+    //     b[b.length] = Infinity;
+    //     var newAry = [],
+    //         m = 0,
+    //         n = 0,
+    //         len;
+    //     for(i = 0,len = r-p+1;i<len;i++){
+    //         console.log(a[m], b[n]);
+    //         console.log(i,"i");
+    //         console.log(m,"m");
+    //         console.log(n, "n");
+    //         if(a[m] <= b[n]){
+    //             ary[p+i] = a[m];
+    //             m++;
+    //         }else{
+    //             ary[p+i] = b[n];
+    //             n++;
+    //         }
+    //         console.log(ary);
+    //     }
+    //     return ary;
+    // }
+    //
+    // console.log(merge([12,9,10,1,3],1,2,4));
+
+    // function mergeSort(ary,p,r){
+    //     var q;
+    //     if(r - p === 1 || (r === p)){
+    //         q = p;
+    //         return merge(ary,p,q,r);
+    //     }else{
+    //         q = Math.ceil((p+r)/2);
+    //         mergeSort(ary,p,q);
+    //         mergeSort(ary,q+1,r);
+    //         return merge(ary,p,q,r);
+    //     }
+    // }
+    // var ary = [2,5,3,1,4,6,8,9,7,10,23,12,7],
+    //     len = ary.length;
+    // console.log(mergeSort(ary,0,len-1)); //[1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10, 12, 23]
+
+
+    // function fn(A,B){
+    //     let a=[],
+    //         b=[];
+    //     for (let i = 0; i < A.length; i++) {
+    //         a[a.length]=A[i];
+    //     }
+    //     for (let i = 0; i < B.length; i++) {
+    //         b[b.length]=B[i];
+    //     }
+    //     let ary=[];
+    //     let m=0,n=0;
+    //     //
+    //     while(m<a.length || n<b.length){
+    //       if(m>=a.length) a[m]=Infinity;
+    //         if(n>=b.length) b[n]=Infinity;
+    //         if(a[m]>b[n]){
+    //             ary[ary.length]=b[n];
+    //             n++;
+    //             continue
+    //         }if(a[m]===b[n]){
+    //             if(a[m]===Infinity && b[n]===Infinity){
+    //                 return ary;
+    //             }
+    //             ary[ary.length]=a[m];
+    //             ary[ary.length]=b[n];
+    //             m++;
+    //             n++;
+    //             continue
+    //         }
+    //         else {
+    //             ary[ary.length]=a[m];
+    //             m++;
+    //             continue
+    //         }
+    //         console.log(ary,"ary");
+    //     }
+    //      return ary
+    // }
+    //
+    // console.log(fn([-10, 5, 8], [-8, 6,9, 10,11,55]));
+
+   //  const options = [
+   //      {
+   //          value: 'zhejiang',
+   //          label: 'Zhejiang',
+   //          children: [
+   //              {
+   //                  value: 'hangzhou',
+   //                  label: 'Hangzhou',
+   //                  children: [
+   //                      {
+   //                          value: 'xihu',
+   //                          label: 'West Lake'
+   //                      }
+   //                  ]
+   //              }
+   //          ]
+   //      },
+   //      {
+   //          value: 'jiangsu',
+   //          label: 'Jiangsu',
+   //          children: [
+   //              {
+   //                  value: 'nanjing',
+   //                  label: 'Nanjing',
+   //                  children: [
+   //                      {
+   //                          value: 'zhonghuamen',
+   //                          label: 'Zhong Hua Men'
+   //                      }
+   //                  ]
+   //              }
+   //          ]
+   //      }
+   //  ];
+   //
+    let traversing=(options)=>{
+        options.forEach(item=>{
+            for (let key in item) {
+                if (!item.hasOwnProperty(key)) break;
+                if(typeof item[key]!=="object"){
+                    console.log(item[key]);
+                    continue;
+                }
+                if(item[key].length===0) continue;
+                traversing(item[key]);
+            }
+        });
+    };
+   //  traversing(options);
+   //
+   //  function dg(options){
+   //      let optionsL = options.length;
+   //      if(optionsL > 0){
+   //          options.forEach(itemObj=>{
+   //              let itemObjAry = Object.keys(itemObj);
+   //              itemObjAry.forEach(item=>{
+   //                  if(item==="children"){
+   //                      dg(itemObj[item]);
+   //                  }else if(typeof itemObj[item] === "object"){
+   //                      throw new Error("出现了非预定的数据格式，还需再加处理")
+   //                  }else{
+   //                      console.log(item+": "+itemObj[item]);
+   //                  }
+   //              })
+   //          });
+   //      }
+   //  }
+   //
+   //  dg(options);
+   //
+   //  //现有一个 Animal 类，请用你知道的所有方式编写 Cat 类并继承于 Animal，并说明每个方法的优缺点
+   //
+   //  function Aniaml(){}
+   //  function Cat(){
+   //
+   //  }
+   //
+    Cat.proptotype=new Aniaml();
+   // Aniaml实例私有的属性以及公有的属性,都变为Cat实例的公有属性
+   // 如果Cat的原型上之前有属性或者方法, 此时之前的方法都没用了
+   //
+   //
+   //
+    function Cat(){
+        Aniaml.call(this);
+    }
+   //
+    // Cat的实例把Aniaml的私有属性继承过来
+    // [弊端] :只能继承Aniaml的私有属性和方法 ,Aniaml原型上的公有属性无法继承
+   //
+   //
+    function Cat(){
+        Aniaml.call(this);
+    }
+     Cat.prototype=Object.create(Aniaml.prototype);
+ //和原型继承比较
+ //1.Cat的实例不会继承Aniaml的给其实例的私有方法
+ //但是依然会丢失Cat原型上的方法
+   //
+   //
+   //
+   //  //=>寄生组合继承升级版
+    function Cat(){
+        Aniaml.call(this);
+    }
+    Object.setPrototypeOf(Cat.prototype,Aniaml.prototype);
+   //  //跟原有
+   //  //=>他不会丢失原有的prototype
+   //
+   //
+    Cat.prototype.__proto__=Aniaml.prototype;
+    //=>IE不支持修改__proto__的指向
+
+
+
+
+    // function A (){
+    //
+    // }
+    // A.prototype.name="aa";
+    //
+    // function B(){
+    //
+    // }
+    // B.proptotype=new A();
+    //
+    // B.proptotype.name="bb";
+    // console.log(B.proptotype);
+    // console.log(A.prototype);
 </script>

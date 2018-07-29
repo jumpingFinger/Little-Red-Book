@@ -10,6 +10,7 @@ import More from "../routes/More";
 import {Icon} from 'antd';
 import action from "../store/action";
 import HomeNative from "./Home/HomeNative";
+import HomeNative备份 from "./Home/HomeNative备份";
 
 
 class Home extends React.Component{
@@ -23,9 +24,8 @@ class Home extends React.Component{
         return (<section >
 
             <Switch>
-                <Route path='/home' component={HomeNative}></Route>
-                <Redirect to='/home'></Redirect>
-
+                <Route path='/home' component={HomeNative备份}/>
+                <Redirect to='/home'/>
             </Switch>
         </section>)
     }

@@ -14,10 +14,11 @@ class PersonalDataHome extends React.Component{
         }
 
     }
-    componentDidMount(){
+   async componentDidMount(){
         let {personInfo,queryPersonInfo} = this.props;
-        if (personInfo && personInfo.length === 0) {
-            queryPersonInfo();
+       console.log(personInfo.id === 0);
+        if (personInfo && personInfo.id === 0) {
+          await queryPersonInfo();
         }
     }
     changeSexSHow=()=>{
@@ -26,7 +27,8 @@ class PersonalDataHome extends React.Component{
 
     render(){
         let {personInfo}=this.props;
-        if(personInfo.length===0) return '';
+        console.log(personInfo.id === 0);
+        if(personInfo.id===0) return '';
         let {name,userImg,bio,id,sex,birth}=personInfo;
         return <section>
             <Header>

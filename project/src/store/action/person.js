@@ -13,12 +13,12 @@ let person ={
    async queryPersonInfo(){
         return {
             type:Types.PERSON_QUERY_BASEINFO,
-            payload:await  queryInfoAPI()
+            payload:await queryInfoAPI()
         }
     },
 
     async reviseBaseInfo(item){
-        let data= await  reviseInfoAPI(item);
+        let data= await reviseInfoAPI(item);
         return {
             type:Types.REVICE_BASEINFO,
             payload:{

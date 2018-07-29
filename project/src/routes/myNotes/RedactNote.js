@@ -56,7 +56,6 @@ class RedactNote extends React.Component{
         let nodeInfo=this.computedInfo();
         let time=new Date().getTime();
         this.props.updateHome(time);
-
         await this.props.addNode(nodeInfo);
         await this.props.getAttentionInfo();
         this.props.history.goBack();

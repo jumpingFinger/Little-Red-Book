@@ -39,9 +39,11 @@ class HomeNative extends React.Component {
             isChange:false,
             isFirstLoad:true,
             likes:0,
-            collect:0
+            collect:0,
+            isSwiperActive:0
         };
     }
+
 
     async componentDidMount() {
         let _this = this;
@@ -77,14 +79,15 @@ class HomeNative extends React.Component {
             await getAttentionInfo();
         }
         this.setState({ isFirstLoad:false});
-
+        console.log("home didmout");
     }
 
-    // componentWillUnmount() {
-    //     if (this.swiperID) { // 销毁swiper
-    //         this.swiperID.destroy()
-    //     }
-    // }
+    componentWillUnmount() {
+        // if (this.swiperID) { // 销毁swiper
+        //     this.swiperID.destroy()
+        // }
+       // console.log(" home 销毁");
+    }
     // componentDidUpdate() {
     //     if (this.swiperID) {
     //         this.swiperID.slideTo(0, 0);
@@ -92,6 +95,7 @@ class HomeNative extends React.Component {
     //         this.swiperID = null;
     //     }
     // }
+
 
 
     changeFocus = (index) => {
@@ -166,7 +170,7 @@ class HomeNative extends React.Component {
                     <div className={'themeList clearfix'}>
                         {
                             //
-                            ["关注", "发现", "附近"].map((item, index) => {
+                            ["关注", "发现"].map((item, index) => {
                                 return <span className={this.state.focus === index ? "theme active" : "theme"}
                                              key={index} onClick={this.changeFocus.bind(null, index)}>{item}</span>
                             })
@@ -335,7 +339,6 @@ class HomeNative extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className='swiper-slide'/>
                         </div>
                     </div>
                 </div>

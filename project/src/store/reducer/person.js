@@ -47,6 +47,7 @@ export default function person(state = {
             break;
         case Types.PERSON_ADDNODE:
             let {nodeList} = action.payload;
+            nodeList=JSON.parse(nodeList);
             state.personInfo.node = nodeList;
             break;
         case Types.PERSON_ADDDRAFT:

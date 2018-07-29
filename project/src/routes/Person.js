@@ -15,8 +15,8 @@ class Person extends React.Component{
     render(){
         return <section >
             <Switch>
-                <Route path='/person' component={PersonHome}></Route>
-                <Redirect to='/person'></Redirect>
+                <Route path='/person' component={PersonHome}/>
+                <Redirect to='/person'/>
             </Switch>
         </section>
     }
