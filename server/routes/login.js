@@ -56,7 +56,11 @@ route.post('/register', (req, res) => {
         ],
         fens: [
 
-        ]
+        ],
+        node: [],
+        likes:[],
+        collect:[],
+        draft:[]
     };
     req.body.password = req.body.password.substr(4, 24).split('').reverse().join('');
     personInfo = {...personInfo, ...req.body};

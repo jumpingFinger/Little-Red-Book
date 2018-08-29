@@ -384,7 +384,7 @@ route.get('/myNode11',(req,res)=>{
                 nodeList.push(item);
             }
         });
-        console.log(nodeList);
+
         res.send({
             state: 0,
             message: 'ok!',
@@ -432,7 +432,7 @@ route.get('/interestingPersonList',(req,res)=>{
         for (let i = 1; i < length+1; i++) {
             AllId.push(i);
         }
-        console.log(AllId,"AllId");
+
         let newAry=utils.removeEle(AllId,myFollow);
         let newAry1=[];
         let a=newAry.length;
@@ -441,13 +441,13 @@ route.get('/interestingPersonList',(req,res)=>{
             newAry1.push(newAry[index]);
         }
         let interestingPersonList = [];
-        console.log(newAry1);
+
         newAry1.forEach(personID => {
             let userInfo = req.personData.find(item => item.id === personID);
             let {id,userImg,bio,name}=userInfo;
             interestingPersonList.push({id,userImg,bio,name});
         });
-        console.log(interestingPersonList);
+
         res.send({
             state: 0,
             message: 'ok!',
