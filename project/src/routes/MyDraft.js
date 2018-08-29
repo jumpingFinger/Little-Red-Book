@@ -36,7 +36,6 @@ class MyDraft extends React.Component {
 
     isNeedLoad = () => {
         let {draftInfo, personInfo} = this.props;
-        if (personInfo.draft.length === 0) return true;
         let match = personInfo.draft.every(draftId => {
             return draftInfo.find(item => item.draftId === draftId);
         });
@@ -44,7 +43,7 @@ class MyDraft extends React.Component {
     };
 
     handleChange = (ev) => {
-        let ary = [];
+        let ary =this.state.removeDraft;
         let target = ev.target;
         if (target.classList.contains("icon")) {
             target = target.parentNode
@@ -52,10 +51,12 @@ class MyDraft extends React.Component {
         if (target.classList.contains("button")) {
             if (target.classList.contains("active")) {
                 target.classList.remove("active");
+                ary=this.state.removeDraft;
+                ary=ary.filter(item=>item !== parseFloat(target.dataset.value));
+                this.setState({removeDraft: ary});
                 return;
             }
             target.classList.add("active");
-            ary = this.state.removeDraft;
             ary.push(parseFloat(target.dataset.value));
             this.setState({
                 removeDraft: ary

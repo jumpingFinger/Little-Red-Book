@@ -41,7 +41,7 @@ render(<Provider store={store}>
                 <Route path="/person"  component={Person}/>
                 <Route path="/message"  component={Message}/>
                 <Route path='/myNotes' component={Mynotes}/>
-                {/*<Route path='/shopping' component={Shopping}/>*/}
+                <Route path='/shopping' component={Shopping}/>
                 <Route path='/more' component={More}/>
                 <Route path='/settings' component={Settings}/>
                 <Route path='/personalData' component={PersonalData}/>
